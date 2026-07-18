@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfólio Consultoria OaZ — Gestão · Operações · Liderança. Orlei Zani. Consultoria Empresarial e Industrial.">
+<title>Portfólio | Consultoria OaZ</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#0A0A0A;color:#fff;min-height:100vh}
+
+/* CAPA */
+.capa{background:linear-gradient(135deg,#0F2547 0%,#1B3A6B 60%,#0F2547 100%);padding:4rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.capa::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(184,134,11,0.15) 0%,transparent 70%);pointer-events:none}
+.logo-svg{width:156px;height:125px;margin:0 auto 1.5rem;display:block}
+.capa-label{font-size:11px;color:#B8860B;letter-spacing:4px;margin-bottom:1rem}
+.capa-title{font-size:clamp(36px,6.5vw,62px);font-weight:700;color:#F5D060;font-family:Georgia,serif;letter-spacing:2px;margin-bottom:.5rem}
+.capa-sub{font-size:clamp(18px,2.6vw,23px);color:#A0B8D8;letter-spacing:2px;margin-bottom:2rem}
+.capa-tagline{font-size:clamp(17px,2.6vw,21px);color:#C8C8C8;line-height:1.8;max-width:600px;margin:0 auto 2rem;font-style:italic}
+.capa-tagline strong{color:#F5D060;font-style:normal}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:600px;margin:0 auto}
+.stat{background:rgba(0,0,0,.3);border:0.5px solid #B8860B;border-radius:10px;padding:1.25rem .5rem;text-align:center}
+.stat-num{font-size:clamp(34px,5.2vw,47px);font-weight:700;color:#B8860B;font-family:Georgia,serif}
+.stat-label{font-size:13px;color:#A0B8D8;margin-top:5px;line-height:1.4}
+
+/* PÁGINA */
+.page{max-width:960px;margin:0 auto;padding:3rem 2rem 4rem}
+.divider{height:0.5px;background:#B8860B;opacity:.25;margin:2.5rem 0}
+.sec-label{font-size:13px;color:#B8860B;letter-spacing:4px;margin-bottom:.5rem}
+.sec-title{font-size:clamp(26px,3.9vw,36px);font-weight:700;color:#fff;margin-bottom:.75rem;line-height:1.3}
+.sec-title span{color:#F5D060}
+.sec-sub{font-size:17px;color:#888;letter-spacing:2px;margin-bottom:2rem}
+
+/* HOOK */
+.hook{background:#111;border-left:4px solid #B8860B;border-radius:0 12px 12px 0;padding:2rem;margin-bottom:2rem}
+.hook-q{font-size:clamp(23px,3.9vw,31px);font-weight:700;color:#F5D060;margin-bottom:1rem;line-height:1.4}
+.hook-p{font-size:18px;color:#C8C8C8;line-height:1.9}
+.hook-p strong{color:#F5D060}
+
+/* SOBRE */
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+.sobre-text{font-size:18px;color:#C8C8C8;line-height:1.9}
+.sobre-text strong{color:#F5D060}
+.diferenciais{background:#111;border-radius:12px;padding:1.5rem;border:0.5px solid #222}
+.dif-title{font-size:13px;color:#B8860B;letter-spacing:3px;margin-bottom:1rem}
+.dif-item{font-size:17px;color:#C8C8C8;padding:7px 0;border-bottom:0.5px solid #1a1a1a;line-height:1.5}
+.dif-item:last-child{border:none}
+.dif-item::before{content:"✓ ";color:#B8860B;font-weight:700}
+
+/* PERFIL */
+.perfil-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.perfil-card{background:#111;border:0.5px solid #1a1a1a;border-top:2px solid #B8860B;border-radius:0 0 10px 10px;padding:1.25rem}
+.perfil-card-title{font-size:17px;font-weight:700;color:#F5D060;margin-bottom:.5rem}
+.perfil-card-text{font-size:16px;color:#888;line-height:1.6}
+.nao-card{border-top-color:#CC0000}
+.nao-card .perfil-card-title{color:#CC0000}
+
+/* PILARES */
+.pilares{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2rem}
+.pilar{background:#111;border-left:3px solid #B8860B;border-radius:0 8px 8px 0;padding:1.25rem}
+.pilar-num{font-size:13px;color:#B8860B;letter-spacing:2px;margin-bottom:4px}
+.pilar-title{font-size:18px;font-weight:700;color:#F5D060;margin-bottom:6px}
+.pilar-desc{font-size:14px;color:#777;margin-bottom:8px;font-style:italic}
+.pilar-list{list-style:none;padding:0}
+.pilar-list li{font-size:14px;color:#888;padding:3px 0;border-bottom:0.5px solid #1a1a1a;line-height:1.5}
+.pilar-list li::before{content:"▸ ";color:#B8860B}
+
+/* SERVIÇOS */
+.servicos{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem}
+.servico{background:#111;border-left:4px solid #B8860B;border-radius:0 10px 10px 0;padding:1.5rem}
+.servico-title{font-size:21px;font-weight:700;color:#F5D060;margin-bottom:.5rem}
+.servico-desc{font-size:17px;color:#C8C8C8;line-height:1.7;margin-bottom:.75rem}
+.servico-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.servico-list li{font-size:14px;color:#888;padding:3px 0;line-height:1.5}
+.servico-list li::before{content:"▸ ";color:#B8860B}
+
+/* DURAÇÃO */
+.duracoes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.duracao{background:#111;border:0.5px solid #B8860B;border-radius:10px;padding:1.5rem;text-align:center}
+.dur-num{font-size:34px;font-weight:700;color:#B8860B;font-family:Georgia,serif;margin-bottom:.5rem}
+.dur-title{font-size:17px;font-weight:700;color:#F5D060;margin-bottom:.5rem}
+.dur-desc{font-size:14px;color:#777;line-height:1.5;font-style:italic}
+
+/* TREINAMENTOS */
+.treina-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem}
+.treina-title{font-size:17px;font-weight:700;color:#F5D060;margin-bottom:.75rem}
+.treina-list{list-style:none;padding:0}
+.treina-list li{font-size:16px;color:#888;padding:5px 0;border-bottom:0.5px solid #1a1a1a;line-height:1.5}
+.treina-list li::before{content:"▸ ";color:#B8860B}
+
+/* FERRAMENTAS */
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2rem}
+.tool{background:#111;border:0.5px solid #B8860B;border-radius:20px;padding:5px 14px;font-size:14px;color:#B8860B}
+
+/* RESULTADOS */
+.resultados-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+.res-card{background:#111;border-top:2px solid #B8860B;border-radius:0 0 10px 10px;padding:1.25rem;text-align:center}
+.res-num{font-size:36px;font-weight:700;color:#B8860B;font-family:Georgia,serif;margin-bottom:4px}
+.res-empresa{font-size:14px;color:#F5D060;font-weight:700;margin-bottom:4px}
+.res-desc{font-size:11px;color:#777;line-height:1.5}
+.resultados-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:2rem}
+.res-item{font-size:17px;color:#C8C8C8;padding:8px 12px;background:#111;border-radius:6px;line-height:1.5}
+.res-item::before{content:"✓ ";color:#B8860B;font-weight:700}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#0F2547,#1B3A6B);border:1px solid #B8860B;border-radius:16px;padding:3rem 2rem;text-align:center;margin-bottom:2rem}
+.cta-title{font-size:clamp(26px,3.9vw,36px);font-weight:700;color:#F5D060;margin-bottom:1rem;line-height:1.4}
+.cta-sub{font-size:18px;color:#A0B8D8;margin-bottom:2rem;line-height:1.7}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:#B8860B;color:#0A0A0A;padding:16px 32px;border-radius:10px;font-size:21px;font-weight:700;text-decoration:none;letter-spacing:.5px}
+.btn-outline{background:transparent;border:2px solid #B8860B;color:#F5D060;padding:14px 28px;border-radius:10px;font-size:20px;font-weight:700;text-decoration:none;letter-spacing:.5px}
+
+/* CONTATO */
+.contato{background:#111;border:0.5px solid #B8860B;border-radius:12px;padding:2rem;text-align:center;margin-bottom:2rem}
+.cont-title{font-size:13px;color:#B8860B;letter-spacing:3px;margin-bottom:1rem}
+.cont-name{font-size:26px;font-weight:700;color:#fff;margin-bottom:.25rem;font-family:Georgia,serif}
+.cont-role{font-size:14px;color:#B8860B;margin-bottom:1.25rem;letter-spacing:1px;line-height:1.6}
+.cont-item{font-size:18px;color:#999;margin-bottom:.6rem}
+.cont-item a{color:#F5D060;text-decoration:none}
+
+/* WA FLUTUANTE */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none}
+.wa-float:hover{transform:scale(1.1)}
+
+.footer{text-align:center;font-size:13px;color:#333;letter-spacing:2px;padding-bottom:2rem}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .capa{padding:3rem 1.5rem 2.5rem}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .page{padding:2rem 1.25rem 3rem}
+  .sobre-grid,.treina-grid,.perfil-grid{grid-template-columns:1fr}
+  .pilares,.servico-list,.resultados-list{grid-template-columns:1fr}
+  .duracoes,.resultados-nums{grid-template-columns:1fr}
+  .wa-float{bottom:20px;right:20px;width:52px;height:52px}
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLUTUANTE -->
+<a class="wa-float" href="https://wa.me/351913946469" target="_blank">
+  <svg width="30" height="30" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" fill="#25D366"/><path d="M36 30.5c-.5-.25-3-1.5-3.5-1.7-.5-.2-.85-.25-1.2.25-.35.5-1.35 1.7-1.65 2.05-.3.35-.6.4-1.1.15-.5-.25-2.1-.75-4-2.4-1.5-1.3-2.5-2.9-2.8-3.4-.3-.5 0-.75.2-1 .25-.25.5-.6.75-.9.25-.3.35-.5.5-.85.15-.35.1-.65-.05-.9-.15-.25-1.2-2.85-1.65-3.9-.4-.95-.85-.8-1.15-.8H19c-.4 0-1 .15-1.55.75-1 1.1-2.5 2.45-2.5 5.05s1.7 5.15 1.95 5.5c.25.35 3.35 5.1 8.1 7.15 1.15.5 2.05.8 2.75.95 1.15.3 2.2.25 3.05.15.9-.15 2.8-1.15 3.2-2.25.4-1.1.4-2.05.25-2.25-.15-.2-.45-.3-.95-.55z" fill="white"/></svg>
+</a>
+
+<!-- CAPA -->
+<div class="capa">
+  <svg class="logo-svg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F5D060"/><stop offset="50%" style="stop-color:#B8860B"/><stop offset="100%" style="stop-color:#8B6508"/></linearGradient>
+      <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#F5D060"/><stop offset="100%" style="stop-color:#7A5200"/></linearGradient>
+      <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#9A6800"/><stop offset="100%" style="stop-color:#B8860B"/></linearGradient>
+    </defs>
+    <polygon points="100,10 40,100 160,100" fill="url(#g1)"/>
+    <polygon points="100,10 40,100 100,100" fill="url(#g2)" opacity="0.85"/>
+    <polygon points="100,10 160,100 100,100" fill="url(#g3)" opacity="0.95"/>
+    <line x1="100" y1="10" x2="100" y2="100" stroke="#F5D060" stroke-width="0.5" opacity="0.4"/>
+    <polygon points="100,10 40,100 160,100" fill="none" stroke="#F5D060" stroke-width="0.8"/>
+    <circle cx="100" cy="10" r="3" fill="#F5D060"/>
+    <circle cx="100" cy="10" r="7" fill="none" stroke="#F5D060" stroke-width="0.5" opacity="0.5"/>
+    <circle cx="100" cy="10" r="13" fill="none" stroke="#B8860B" stroke-width="0.5" opacity="0.3"/>
+    <text x="100" y="130" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#B8860B" letter-spacing="4">OaZ</text>
+    <text x="100" y="148" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="#F5D060" letter-spacing="4">CONSULTORIA</text>
+  </svg>
+  <div class="capa-label">CONSULTORIA OaZ</div>
+  <div class="capa-title">Portfólio de Serviços</div>
+  <div class="capa-sub">GESTÃO &nbsp;·&nbsp; OPERAÇÕES &nbsp;·&nbsp; LIDERANÇA</div>
+  <div class="capa-tagline"><strong>"Estruturamos empresas e indústrias que dependem do dono para funcionar</strong> — e fazemos sobrar dinheiro no caixa no fim do mês."</div>
+  <div style="margin:2rem auto 2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:2">
+    <a href="https://wa.me/351913946469" target="_blank" style="background:#B8860B;color:#0A0A0A;padding:16px 32px;border-radius:10px;font-size:21px;font-weight:700;text-decoration:none;letter-spacing:.5px">Quero meu diagnóstico gratuito</a>
+    <a href="#servicos" style="background:transparent;border:2px solid #B8860B;color:#F5D060;padding:14px 28px;border-radius:10px;font-size:20px;font-weight:700;text-decoration:none;letter-spacing:.5px">Ver como funciona</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">+30%</div><div class="stat-label">Ganho médio em resultados</div></div>
+    <div class="stat"><div class="stat-num">+42%</div><div class="stat-label">Aumento de produtividade</div></div>
+    <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Anos de experiência</div></div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- HOOK -->
+  <div class="divider"></div>
+  <div class="hook">
+    <div class="hook-q">Sua empresa está funcionando por você — ou apesar de você?</div>
+    <div class="hook-p">Entendemos que cada empresa tem sua história e cada caso é único. Por isso não aplicamos fórmulas prontas — <strong>personalizamos a gestão da sua organização</strong> de forma ágil, precisa e respeitosa com o que já foi construído. Aqui o processo é tão importante quanto o resultado.</div>
+  </div>
+
+  <!-- SOBRE -->
+  <div class="divider"></div>
+  <div class="sec-label">SOBRE A OaZ</div>
+  <div class="sec-title">Experiência que <span>transforma</span></div>
+  <div class="sobre-grid">
+    <div class="sobre-text">
+      Possuímos experiência comprovada em gestão de <strong>empresas e indústrias</strong>, conduzindo equipes de alta performance através de uma cultura forte e confiança estabelecida entre todos.<br><br>
+      Diagnosticamos e melhoramos seus processos através da integração de todos os sistemas de gestão — extraindo o melhor das <strong>pessoas, dos processos e dos produtos</strong>.<br><br>
+      Influenciar, conectar e convencer — esses são os pilares que sustentam cada projeto que executamos.
+    </div>
+    <div class="diferenciais">
+      <div class="dif-title">POR QUE A OaZ</div>
+      <div class="dif-item">Foco em execução — não em teoria</div>
+      <div class="dif-item">Linguagem empresarial, sem academicismos</div>
+      <div class="dif-item">Resultado mensurável desde a primeira semana</div>
+      <div class="dif-item">Adaptado à realidade de cada empresa</div>
+      <div class="dif-item">Baseado em dados, método e governança</div>
+      <div class="dif-item">25+ anos de resultado comprovado</div>
+    </div>
+  </div>
+
+  <!-- PERFIL ATENDIDO -->
+  <div class="divider"></div>
+  <div class="sec-label">PERFIL DAS EMPRESAS ATENDIDAS</div>
+  <div class="sec-title">Para quem <span>é</span> — e para quem <span style="color:#CC0000">não é</span></div>
+  <div style="display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem">
+    <div class="perfil-card">
+      <div class="perfil-card-title">✓ Para quem É</div>
+      <div class="perfil-card-text" style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px">
+        <span>▸ Empresas e indústrias privadas de qualquer segmento</span>
+        <span>▸ Faturamento entre R$100k e R$5M por mês</span>
+        <span>▸ Dependem excessivamente do dono ou gestor</span>
+        <span>▸ Não possuem indicadores de gestão estruturados</span>
+        <span>▸ Crescem com desorganização operacional</span>
+        <span>▸ Não sabem o custo real dos produtos e serviços</span>
+        <span>▸ Querem resultado real, concreto e duradouro</span>
+        <span>▸ Acreditam no trabalho consistente — não em atalhos</span>
+      </div>
+    </div>
+    <div class="perfil-card nao-card">
+      <div class="perfil-card-title">✗ Para quem NÃO é</div>
+      <div class="perfil-card-text" style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px">
+        <span>▸ Empresas que buscam apenas marketing</span>
+        <span>▸ Gestores que não aceitam mudança</span>
+        <span>▸ Donos que não querem ver números</span>
+        <span>▸ Negócios informais sem intenção de estruturar</span>
+        <span>▸ Quem busca cursinho de imersão de fim de semana</span>
+        <span>▸ Quem procura gurus com fórmulas mágicas</span>
+        <span>▸ Quem não valoriza método, dados e processo</span>
+        <span>▸ Quem busca atalho sem comprometimento</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PILARES -->
+  <div class="divider"></div>
+  <div class="sec-label">PILARES DA CONSULTORIA OaZ</div>
+  <div class="sec-title">8 dimensões de <span>transformação</span></div>
+  <div class="pilares">
+    <div class="pilar">
+      <div class="pilar-num">01</div>
+      <div class="pilar-title">Modelo de Negócio</div>
+      <div class="pilar-desc">O que realmente é vendido e como precificar</div>
+      <ul class="pilar-list">
+        <li>Estruturação de produtos e serviços</li>
+        <li>Precificação correta com margem real</li>
+        <li>Recorrência e previsibilidade de receita</li>
+        <li>Ponto de equilíbrio e viabilidade financeira</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">02</div>
+      <div class="pilar-title">Estrutura Organizacional</div>
+      <div class="pilar-desc">Organograma funcional e papéis definidos</div>
+      <ul class="pilar-list">
+        <li>Organograma funcional — pessoas certas nos lugares certos</li>
+        <li>Papéis, responsabilidades e funções</li>
+        <li>Rotinas de gestão e reuniões estruturadas</li>
+        <li>Separação entre decisão e execução</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">03</div>
+      <div class="pilar-title">Processos e Operação</div>
+      <div class="pilar-desc">Padronização e eficiência operacional</div>
+      <ul class="pilar-list">
+        <li>Mapeamento e reengenharia de processos</li>
+        <li>Checklists, POPs e padronização</li>
+        <li>PCP — Planejamento e Controle de Produção</li>
+        <li>Redução de custos e aumento de eficiência</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">04</div>
+      <div class="pilar-title">Gestão Comercial</div>
+      <div class="pilar-desc">Funil de vendas e conversão estruturada</div>
+      <ul class="pilar-list">
+        <li>Qualificação e nutrição de leads</li>
+        <li>Treinamento de quebra de objeções e conversão</li>
+        <li>Follow-up e reativação de clientes</li>
+        <li>CRM e gestão de metas comerciais</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">05</div>
+      <div class="pilar-title">Gestão Financeira</div>
+      <div class="pilar-desc">Controle total do caixa e das margens</div>
+      <ul class="pilar-list">
+        <li>Fluxo de caixa e DRE gerencial</li>
+        <li>Margem real por produto/serviço</li>
+        <li>Custos operacionais e industriais</li>
+        <li>Gestão financeira integrada</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">06</div>
+      <div class="pilar-title">Indicadores e Resultados</div>
+      <div class="pilar-desc">Decisão baseada em dados e fatos</div>
+      <ul class="pilar-list">
+        <li>KPIs por área — produção, vendas, RH, financeiro</li>
+        <li>Dashboards executivos e gestão visual</li>
+        <li>Metas reais com acompanhamento sistemático</li>
+        <li>Rotina de gestão orientada a dados</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">07</div>
+      <div class="pilar-title">Pessoas, Cultura e Governança</div>
+      <div class="pilar-desc">O ativo mais valioso da sua organização</div>
+      <ul class="pilar-list">
+        <li>Desenvolvimento de lideranças e PDIs</li>
+        <li>Cultura de responsabilidade e alta performance</li>
+        <li>Compliance, segurança jurídica e sanitária</li>
+        <li>Cargos, salários e meritocracia</li>
+      </ul>
+    </div>
+    <div class="pilar">
+      <div class="pilar-num">08</div>
+      <div class="pilar-title">Qualidade e Sistemas de Gestão</div>
+      <div class="pilar-desc">Conformidade, certificações e melhoria contínua</div>
+      <ul class="pilar-list">
+        <li>GMP/BPF, APPCC/HACCP, ISO 9001/22000</li>
+        <li>Habilitação para auditorias e mercado externo</li>
+        <li>Qualificação e auditoria de fornecedores</li>
+        <li>TPM, PDCA e Melhoria Contínua</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div class="divider"></div>
+  <div class="sec-label">SERVIÇOS</div>
+  <div class="sec-title">O que fazemos <span>na prática</span></div>
+  <div class="servicos">
+    <div class="servico">
+      <div class="servico-title">Consultoria Executiva</div>
+      <div class="servico-desc">Presencial ou híbrida. Imersão total na operação em ambientes industriais e empresariais em todos os setores: alimentos e bebidas, saúde e clínicas, ingredientes naturais, farmácias de manipulação, agroindústria, empresas familiares e serviços.</div>
+      <ul class="servico-list">
+        <li>Diagnóstico completo da operação em até 30 dias</li>
+        <li>Estruturação de indicadores, processos e liderança</li>
+        <li>Implantação de governança e rotinas de gestão</li>
+        <li>Acompanhamento semanal com entrega de resultados</li>
+      </ul>
+    </div>
+    <div class="servico">
+      <div class="servico-title">Mentoria Executiva</div>
+      <div class="servico-desc">Individual ou para sócios. Encontros semanais ou quinzenais com sessões estratégicas e tarefas práticas entre sessões. O dono aprende a gerir com método e para de ser refém da operação.</div>
+      <ul class="servico-list">
+        <li>Sessões de 2h com agenda estruturada e foco em resultado</li>
+        <li>Tarefas práticas aplicadas diretamente no negócio</li>
+        <li>Acompanhamento entre sessões</li>
+        <li>Duração mínima de 3 meses — máxima de 12 meses</li>
+      </ul>
+    </div>
+    <div class="servico">
+      <div class="servico-title">Treinamentos Corporativos</div>
+      <div class="servico-desc">Capacitação técnica e gerencial sob medida para equipes, lideranças e gestores. Do operador ao diretor — cada nível com o conteúdo certo para o momento certo.</div>
+      <ul class="servico-list">
+        <li>Treinamentos presenciais, híbridos ou online</li>
+        <li>Conteúdo personalizado para o segmento do cliente</li>
+        <li>Materiais, checklists e ferramentas práticas incluídos</li>
+        <li>Avaliação de desempenho e fixação de aprendizado</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DURAÇÃO -->
+  <div class="divider"></div>
+  <div class="sec-label">FORMATOS E DURAÇÃO</div>
+  <div class="sec-title">Cada projeto <span>no tempo certo</span></div>
+  <div class="duracoes">
+    <div class="duracao">
+      <div class="dur-num">3 meses</div>
+      <div class="dur-title">Organização básica</div>
+      <div class="dur-desc">Diagnóstico, estruturação inicial, processos e indicadores fundamentais.</div>
+    </div>
+    <div class="duracao">
+      <div class="dur-num">6 meses</div>
+      <div class="dur-title">Gestão estruturada</div>
+      <div class="dur-desc">Governança, liderança, financeiro e operação rodando com autonomia.</div>
+    </div>
+    <div class="duracao">
+      <div class="dur-num">9–12 meses</div>
+      <div class="dur-title">Maturidade e escala</div>
+      <div class="dur-desc">Cultura instalada, equipes autônomas e responsáveis, empresa preparada para escalar.</div>
+    </div>
+  </div>
+
+  <!-- TREINAMENTOS -->
+  <div class="divider"></div>
+  <div class="sec-label">TREINAMENTOS & EDUCAÇÃO CORPORATIVA</div>
+  <div class="sec-title">Capacitação <span>técnica e gerencial</span></div>
+  <div class="treina-grid">
+    <div>
+      <div class="treina-title">Técnicos e Operacionais</div>
+      <ul class="treina-list">
+        <li>GMP/BPF, APPCC/HACCP e Normas ISO</li>
+        <li>Segurança Alimentar e no Trabalho</li>
+        <li>Rotulagem e aspectos legais em embalagens</li>
+        <li>POP, PPHO e procedimentos operacionais</li>
+        <li>Custos operacionais — Markup e OBZ</li>
+        <li>Indicadores Chaves de Processo (KPIs e OKRs)</li>
+        <li>MASP — Método de Análise e Solução de Problemas</li>
+      </ul>
+    </div>
+    <div>
+      <div class="treina-title">Gerenciais e Comportamentais</div>
+      <ul class="treina-list">
+        <li>Liderança, Feedbacks e Métodos de Abordagem</li>
+        <li>Gestão de Metas e Sistema de Indicadores</li>
+        <li>Metodologias Ágeis — Scrum, Kanban, Design Thinking</li>
+        <li>Inteligência Emocional e Saúde Mental</li>
+        <li>Gestão pela Colaboração — Management 3.0</li>
+        <li>Desaprendizagem e Mentalidade de Crescimento</li>
+        <li>Funil de Vendas e Conversão</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FERRAMENTAS -->
+  <div class="divider"></div>
+  <div class="sec-label">FERRAMENTAS & METODOLOGIAS</div>
+  <div class="tools">
+    <span class="tool">OEE / OOE</span><span class="tool">TPM</span><span class="tool">PDCA</span>
+    <span class="tool">Lean Manufacturing</span><span class="tool">Kanban</span><span class="tool">Scrum</span>
+    <span class="tool">Design Thinking</span><span class="tool">BSC</span><span class="tool">OBZ</span>
+    <span class="tool">KPIs / OKRs</span><span class="tool">Management 3.0</span><span class="tool">HACCP</span>
+    <span class="tool">ISO 9001</span><span class="tool">ISO 22000</span><span class="tool">MASP</span>
+    <span class="tool">5S</span><span class="tool">SAP R/3</span><span class="tool">IA & Automação</span>
+  </div>
+
+  <!-- RESULTADOS -->
+  <div class="divider"></div>
+  <div class="sec-label">RESULTADOS TÍPICOS</div>
+  <div class="sec-title">O que acontece quando <span>o método entra</span></div>
+  <div class="resultados-nums">
+    <div class="res-card">
+      <div class="res-num">+28%</div>
+      <div class="res-empresa">Redução de custos</div>
+      <div class="res-desc">média em operações atendidas</div>
+    </div>
+    <div class="res-card">
+      <div class="res-num">+42%</div>
+      <div class="res-empresa">Aumento de produtividade</div>
+      <div class="res-desc">em indústrias e empresas</div>
+    </div>
+    <div class="res-card">
+      <div class="res-num">+60%</div>
+      <div class="res-empresa">Crescimento de faturamento</div>
+      <div class="res-desc">com estrutura operacional</div>
+    </div>
+  </div>
+  <div class="resultados-list">
+    <span class="res-item">Previsibilidade financeira e de receita</span>
+    <span class="res-item">Redução de custos operacionais e industriais</span>
+    <span class="res-item">Lideranças com proatividade e autonomia responsável</span>
+    <span class="res-item">Indicadores que antecipam problemas</span>
+    <span class="res-item">Processos que funcionam independente do turno</span>
+    <span class="res-item">Cultura de responsabilidade e alta performance</span>
+    <span class="res-item">Equipes organizadas com papéis e responsabilidades claras</span>
+    <span class="res-item">Empresa preparada para crescer e escalar</span>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="cta-box">
+    <div class="cta-title">Pronto para parar de carregar a empresa nas costas?</div>
+    <div class="cta-sub">Agende um diagnóstico gratuito de 1 hora. Sem compromisso. Vamos entender sua situação e mostrar o que é possível transformar.</div>
+    <div class="cta-btns">
+      <a class="btn-gold" href="https://wa.me/351913946469" target="_blank">Agendar diagnóstico gratuito</a>
+      <a class="btn-outline" href="tel:+5566996839527">Ligar agora</a>
+    </div>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="contato">
+    <div class="cont-title">FALE CONOSCO</div>
+    <div class="cont-name">Orlei Zani</div>
+    <div class="cont-role">HEAD DE OPERAÇÕES &nbsp;·&nbsp; ESTRATÉGIA EMPRESARIAL &nbsp;·&nbsp; CONSULTOR EXECUTIVO</div>
+    <div class="cont-item"><a href="https://wa.me/351913946469">WhatsApp: +351 913 946 469</a></div>
+    <div class="cont-item"><a href="tel:+5566996839527">Telefone: +55 66 99683-9527</a></div>
+    <div class="cont-item"><a href="mailto:orleizani@gmail.com">orleizani@gmail.com</a></div>
+    <div class="cont-item" style="margin-top:.75rem;font-size:14px;color:#444">Disponível para atuação presencial e híbrida em todo o Brasil</div>
+  </div>
+
+  <div class="footer">CONSULTORIA OAZ &nbsp;·&nbsp; BRASIL &nbsp;·&nbsp; PORTUGAL</div>
+
+</div>
+</body>
+</html>
